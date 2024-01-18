@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CiudadanoDiferente.Models.Miembro>
+
+@{
+    ViewData["Title"] = "Miembros registrados";
+   
+
+}
+
+<h1>Miembros</h1>
+
+<p>
+    <a asp-action="Create">Agregar miembro</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ColegioElectoral)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cedula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recinto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ColegioElectoral)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recinto)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.VotanteId">Editar</a> |
+                <a asp-action="Details" class="btn btn-info" asp-route-id="@item.VotanteId">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger"  asp-route-id="@item.VotanteId">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
